@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(214, 3, 3);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>JavaScript Events</h2>
+    <button onClick="handleClick()">Click</button>
+    <p onMouseOver="handleMouseOver()" onMouseOut="handleMouseOut()">over me</p>
+    <input type="text" onchange="handleChange()" onkeydown="handleKeyDown()">
+    <script>
+        //program 1//
+        const reverse1 = (num) => {
+            return parseInt(num.toString().split('').reverse().join(''));
+        }
+        var num = parseInt(prompt("Enter Number to be resolved"));
+        const reverse = reverse1(num);
+        alert(reverse);
+        //program 2
+        fact1 = (num) => {
+            let fact = 1;
+            for (i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            return (fact)
+        }
+        var num = parseInt(prompt("enter Number to find Factorial"));
+        const fact2 = fact1(num);
+        alert(fact2);
+        //program 3//
+
+        const str = prompt('Enter string');
+        const longest = (str) => { // Split the string into array
+            str = str.split(" ");
+            // Return the first sorted item of the Array 
+            return str.sort((a, b) => b.length - a.length)[0];
+        }
+        alert(longest(str));
+        //program 4//
+        const str1 = (arr) => {
+            const length = parseInt(prompt("enter the length of string"));
+            return arr.filter(str => str.length == length);
+        }
+        var strings = ['hi', 'hello'];
+        const filter1 = str1(strings);
+        alert(filter1);
+
+        //program 5//
+        function handleClick() {
+
+            alert('Button was clicked');
+        }
+
+        function handleMouseOver() {
+            console.log("mouse moved over the text");
+        }
+
+        function handleMouseOut() {
+            console.log("mouse moved out");
+        }
+
+        function handleChange() {
+            console.log("changed");
+        }
+
+        function handleKeyDown() {
+            console.log("key down");
+        }
+    </script>
+</body>
+
+</html>

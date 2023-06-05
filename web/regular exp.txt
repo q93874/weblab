@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        finder = function() {
+            var a = document.getElementById('usn').value;
+            if (a.indexOf('000') > -1) {
+                alert("Please enter the valid USN");
+                return;
+            }
+            let pattern = /^[1-4][a-z][a-z][0-9][0-9][a-z][a-z][0-9][0-9][0-9]/i;
+            var b = a.toLowerCase();
+            if (pattern.test(b) == true) {
+                alert("USN is valid");
+            } else {
+                alert("USN is invalid");
+
+            }
+
+        }
+        finder1 = function() {
+
+            var str = document.getElementById('dates').value;
+
+            //const regex = /\d{2}\/\d{2}\/\d{4}/; 
+            const regex = /(0[1-9]|[1-2][0-9]|3[0-1])[\/](0?[1-9]|1[0-2])[\/]\d{4}/;
+            const match = str.match(regex);
+            if (match) {
+                alert(`Sample Output: ${match[0]}`);
+            } else {
+                alert("date is not in the right format or date is not available in the given string .");
+            }
+
+        }
+
+        function validateEmail(email) {
+            const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
+            return regex.test(email);
+        }
+
+        function mail() {
+            const email = prompt("enter the mail to be validated");
+            if (validateEmail(email)) {
+                alert(`${email} is a valid email address.`);
+            } else {
+                alert(`${email} is not a valid email address.`);
+            }
+        }
+    </script>
+    <h1 style="text-align: center;"> Regular Expressions</h1>
+    <form onsubmit=finder()>
+        <h2>1) Write a Javascript program to validate the VTU USN entered in the text box and alert as valid or invalid USN.
+        </h2><br><br> Enter USN in Upper Case :<input id=usn type=text><br><br>
+        <input type=submit value=submit><br>
+    </form>
+    <form onsubmit=finder1()>
+        <h2>2) Write a JavaScript program to search a date within a string and display(alert) the date. Sample Input: "Albert Einstein was born in Ulm, on 14/03/1879." Sample Output:14/03/1879.
+        </h2><br><br> Enter the string :<input id=dates type=text><br><br>
+        <input type=submit value=submit><br>
+    </form>
+    <h2>
+        3) Write a Javascript code to validate the email id using regular expressions. email is a string consisting of 3 parts: username, @ symbol and domain. The first part of an email address is the username.
+    </h2><br><br>
+    <button onclick="mail()">click here</button><br><br>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head><title>my webpage2</title>
+
+</head>
+<body>
+    <style>
+        body {
+         background-color: brown;
+          background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        h1{text-align: center;
+            color: aliceblue;}
+        h2{
+            color:green;
+        }
+        button{
+            width:50px;
+            height:50px;
+            background-color: rgba(100,32.5,28.6,0.4);
+            border:0px;
+            border-radius: 50%;
+            margin:0px;
+        }
+        button:hover{
+            width:60px;
+            height:60px;
+            background-color: rgba(100,32.5,28.6,1);
+            border:0px;
+            border-radius: 50%;
+            margin:0px;
+        }
+        </style>
+
+
+    <script>
+    // document.getElementById("myBtn").addEventListener("click", alphabet_order);
+    function caesarCipher() 
+    {
+    let plaintext = prompt("Enter the text to encrypt:"); 
+    let shift = parseInt(prompt("Enter the shift pattern:")); 
+
+    let ciphertext = ""; 
+
+for (let i = 0; i < plaintext.length; i++) {
+  let char = plaintext[i];
+  if (char.match(/[a-z]/i)) { 
+    let code = plaintext.charCodeAt(i);
+    if (code >= 65 && code <= 90) {
+      char = String.fromCharCode(((code - 65 + shift) % 26) + 65); 
+    } else if (code >= 97 && code <= 122) {
+      char = String.fromCharCode(((code - 97 + shift) % 26) + 97); 
+    }
+  }
+  ciphertext += char;
+}
+alert("The encrypted text is: " + ciphertext);
+}
+
+function countt(){
+        var str = prompt("Enter the string");
+        alert("The number of words:"+str.split(" ").length);
+}
+
+function countVowel() { 
+    var str = prompt("Enter the string");
+    alert(str.match(/[aeiou]/gi).length);
+}
+
+function alphabet_order() {
+    var str= document.getElementById("a").innerText;
+    console.log(str);
+    const lettersOnly = str.replace(/[^a-zA-Z]/g, '');
+    alert(lettersOnly.split('').sort().join(''));
+}
+</script>
+<h1 style="color: black;">assigment</h1>
+
+<h2>Write JavaScript code to encrypt the text using Caesar Cipher technique. Display the encrypted text using an alert. Prompt the user for input and the shift pattern.</h2>
+<button onclick="caesarCipher()">click</button>
+<br><br>
+
+<h2>Program to count the words in the given text</h2>
+<button onclick="countt()">click</button>
+<br><br>
+
+<h2>TO count the number f vovels in a sting</h2>
+<button onclick="countVowel()">click</button>
+<br><br>   
+    <h2>
+        Write a JavaScript code that returns a passed string with letters in alphabetical order. Use addEventListener() method.(Use input text box and innertext)
+    </h2>
+    <input type="text" id="inputBox" placeholder="Type a string...">
+    <p id="output"></p>
+    <script>
+        const inputBox = document.getElementById('inputBox');
+        const output = document.getElementById('output');
+
+        inputBox.addEventListener('input', () => {
+            const sortedString = inputBox.value.split('').sort().join('');
+            output.innerText = sortedString;
+        });
+    </script>
+</body> 
+</html>

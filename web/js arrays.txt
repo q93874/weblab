@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Add/Delete Elements in Array</title>
+  </head>
+  <body>
+    <h1>Add/Delete Elements in Array</h1>
+    <p>Enter an array of integers and select an operation to add or delete an element at a specific position:</p>
+    <form>
+      Array: <input type="text" id="array"><br>
+      Position: <input type="number" id="position"><br>
+      Value: <input type="number" id="value"><br><br>
+      <button type="button" onclick="addElement()">Add Element</button>
+      <button type="button" onclick="deleteElement()">Delete Element</button>
+    </form>
+    <p id="result"></p>
+    <script>
+      let array = [];
+
+      function addElement() {
+        const position = parseInt(document.getElementById("position").value);
+        const value = parseInt(document.getElementById("value").value);
+        array.splice(position, 0, value);
+        displayArray();
+      }
+
+      function deleteElement() {
+        const position = parseInt(document.getElementById("position").value);
+        array.splice(position, 1);
+        displayArray();
+      }
+
+      function displayArray() {
+        const arrayInput = document.getElementById("array");
+        array = arrayInput.value.split(",").map(x => parseInt(x.trim()));
+        const resultElement = document.getElementById("result");
+        resultElement.textContent = `Array: [${array}]`;
+      }
+    </script>
+  </body>
+</html>

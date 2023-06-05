@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Linear Search on Array</title>
+  </head>
+  <body>
+    <h1>Linear Search on Array</h1>
+    <p>Enter integers to add to the array using the prompt function:</p>
+    <button type="button" onclick="addElements()">Add Elements</button>
+    <p id="result"></p>
+    <p>Enter an integer to search for in the array:</p>
+    <form>
+      <input type="number" id="searchValue">
+      <button type="button" onclick="linearSearch()">Search</button>
+    </form>
+    <p id="searchResult"></p>
+    <script>
+      let array = [];
+
+      function addElements() {
+        while (true) {
+          const input = prompt("Enter an integer to add to the array (or click 'Cancel' to finish):");
+          if (input === null) {
+            break;
+          }
+          const value = parseInt(input);
+          if (!isNaN(value)) {
+            array.push(value);
+          }
+        }
+        displayArray();
+      }
+
+      function displayArray() {
+        const resultElement = document.getElementById("result");
+        resultElement.textContent = `Array: [${array}]`;
+      }
+
+      function linearSearch() {
+        const searchValue = parseInt(document.getElementById("searchValue").value);
+        let found = false;
+        let index = -1;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === searchValue) {
+            found = true;
+            index = i;
+            break;
+          }
+        }
+        const searchResultElement = document.getElementById("searchResult");
+        if (found) {
+          searchResultElement.textContent = `Value ${searchValue} found at index ${index}`;
+        } else {
+          searchResultElement.textContent = `Value ${searchValue} not found in array`;
+        }
+      }
+    </script>
+  </body>
+</html>
