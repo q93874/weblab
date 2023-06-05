@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pass by Value</title>
+</head>
+<body>
+    <h1>Pass by Value</h1>
+    <p id="output"></p>
+
+    <script>
+        let x = 10;
+
+        const passByValue = (x) => {
+            x = 20;
+            return "Inside passByValue function: x = " + x;
+        }
+
+        let output = "Before passByValue function: x = " + x + "<br>";
+        output += passByValue(x) + "<br>";
+        output += "After passByValue function: x = " + x;
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+</html>
