@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Vowels</title>
+</head>
+<body>
+    <label for="input">Enter a string:</label>
+    <input type="text" id="input"><br>
+    <button id="countButton">Count Vowels</button>
+    <p id="output"></p>
+
+    <script>
+        document.getElementById("countButton").addEventListener("click", function() {
+            var input = document.getElementById("input").value;
+            var vowels = "aeiouAEIOU";
+            var count = 0;
+            for (var i = 0; i < input.length; i++) {
+                if (vowels.indexOf(input[i]) !== -1) {
+                    count++;
+                }
+            }
+            document.getElementById("output").textContent = "Number of vowels: " + count;
+        });
+    </script>
+</body>
+</html>
