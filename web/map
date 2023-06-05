@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Operations</title>
+    <script>
+        var map = new Map();
+
+        function addValue() {
+            var key = prompt("Enter a key:");
+            var value = prompt("Enter a value:");
+            if (key && value) {
+                map.set(key, value);
+                alert("Value added to the map: Key - " + key + ", Value - " + value);
+            } else {
+                alert("No key or value entered.");
+            }
+        }
+
+        function retrieveValue() {
+            var key = prompt("Enter a key to retrieve:");
+            var value = map.get(key);
+            if (value !== undefined) {
+                alert("Value found in the map: Key - " + key + ", Value - " + value);
+            } else {
+                alert("Value not found in the map.");
+            }
+        }
+
+        function iterateMap() {
+            var values = "Map entries:\n";
+            map.forEach(function(value, key) {
+                values += "Key - " + key + ", Value - " + value + "\n";
+            });
+            alert(values);
+        }
+    </script>
+</head>
+<body>
+    <h1>Map Operations</h1>
+    <button onclick="addValue()">Add Value</button>
+    <button onclick="retrieveValue()">Retrieve Value</button>
+    <button onclick="iterateMap()">Iterate Map</button>
+</body>
+</html>
