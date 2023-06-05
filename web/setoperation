@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Operations</title>
+    <script>
+        var set = new Set();
+
+        function addValue() {
+            var value = prompt("Enter a value:");
+            if (value) {
+                set.add(value);
+                alert("Value added to the set: " + value);
+            } else {
+                alert("No value entered.");
+            }
+        }
+
+        function retrieveValue() {
+            var value = prompt("Enter a value to retrieve:");
+            if (set.has(value)) {
+                alert("Value found in the set: " + value);
+            } else {
+                alert("Value not found in the set.");
+            }
+        }
+
+        function iterateSet() {
+            var values = "Set values:\n";
+            set.forEach(function(item) {
+                values += item + "\n";
+            });
+            alert(values);
+        }
+    </script>
+</head>
+<body>
+    <h1>Set Operations</h1>
+    <button onclick="addValue()">Add Value</button>
+    <button onclick="retrieveValue()">Retrieve Value</button>
+    <button onclick="iterateSet()">Iterate Set</button>
+</body>
+</html>
