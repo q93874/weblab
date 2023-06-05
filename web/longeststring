@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Longest Word</h2>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var str = prompt("Enter a string:");
+  var words = str.split(" ");
+  var longest = "";
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > longest.length) {
+      longest = words[i];
+    }
+  }
+  document.getElementById("demo").innerHTML = "The longest word is " + longest;
+}
+</script>
+
+</body>
+</html>
